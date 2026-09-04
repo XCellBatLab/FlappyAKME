@@ -380,8 +380,8 @@
     let H = 640;
     let PLAY_H = H - GROUND;
 
-    const charImg = loadImage("./assets/character.png");
-    const bgImg = loadImage("./assets/background.png");
+    const charImg = loadImage("./character.png");
+    const bgImg = loadImage("./background.png");
 
     const pipes = Array.from({ length: PIPE_COUNT }, () => ({
       x: 0, gapY: PLAY_H / 2, gapH: BASE_GAP, scored: false, alive: false,
