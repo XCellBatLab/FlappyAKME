@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#07080c" />
+  <title>Flappy AKME</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="stage">
+    <div class="cabinet">
+      <div class="bezel">
+        <div class="brand-plate">
+          <span class="brand-mark">AKME ARCADE</span>
+          <span id="led" class="led" aria-hidden="true"></span>
+        </div>
+        <div class="glass-wrap">
+          <canvas id="game" class="game-canvas" aria-label="Flappy AKME playfield"></canvas>
+          <div class="scanlines" aria-hidden="true"></div>
+          <div class="vignette" aria-hidden="true"></div>
+
+          <div class="mute-slot">
+            <button type="button" id="mute-btn" class="icon-btn hit" aria-label="Mute">VOL</button>
+          </div>
+
+          <div class="overlay-root">
+            <div id="overlay-power" class="fill-center">
+              <div class="word">FLAPPY</div>
+              <div class="word title-gap">AKME</div>
+              <p class="blink title-cta">TAP TO POWER ON</p>
+            </div>
+
+            <div id="overlay-boot" class="fill-center hidden">
+              <div class="word">FLAPPY</div>
+              <div class="word title-gap">AKME</div>
+            </div>
+
+            <div id="overlay-title" class="hidden title-screen">
+              <div class="title-lockup">
+                <div class="word">FLAPPY</div>
+                <div class="word">AKME</div>
+                <p class="blink">PRESS START</p>
+                <p class="hint">TAP / SPACE / A</p>
+              </div>
+              <div class="panel no-hit">
+                <h2>TOP SCORES</h2>
+                <div id="board-title" class="board"></div>
+              </div>
+            </div>
+
+            <div id="overlay-gameover" class="panel hit fill-center hidden">
+              <h2>GAME OVER</h2>
+              <div class="stat-row"><span>SCORE</span><span id="score-val">0000</span></div>
+              <div class="stat-row"><span>BEST</span><span id="best-val">0000</span></div>
+
+              <div id="initials-wrap" class="stack">
+                <p class="hint tight">ENTER INITIALS</p>
+                <div class="reels">
+                  <div class="reel">
+                    <button type="button" data-nudge="0,1" aria-label="Next letter">+</button>
+                    <button type="button" class="glyph is-on" id="glyph-0" data-slot="0">A</button>
+                    <button type="button" data-nudge="0,-1" aria-label="Prev letter">-</button>
+                  </div>
+                  <div class="reel">
+                    <button type="button" data-nudge="1,1" aria-label="Next letter">+</button>
+                    <button type="button" class="glyph" id="glyph-1" data-slot="1">K</button>
+                    <button type="button" data-nudge="1,-1" aria-label="Prev letter">-</button>
+                  </div>
+                  <div class="reel">
+                    <button type="button" data-nudge="2,1" aria-label="Next letter">+</button>
+                    <button type="button" class="glyph" id="glyph-2" data-slot="2">M</button>
+                    <button type="button" data-nudge="2,-1" aria-label="Prev letter">-</button>
+                  </div>
+                </div>
+                <p id="save-err" class="hint hidden"></p>
+                <button type="button" id="submit-btn" class="px-btn">SUBMIT</button>
+                <button type="button" id="skip-btn" class="px-btn ghost">SKIP</button>
+              </div>
+
+              <div id="again-wrap" class="stack hidden">
+                <div id="board-over" class="board"></div>
+                <button type="button" id="again-btn" class="px-btn">PLAY AGAIN</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="./game.js"></script>
+</body>
+</html>
